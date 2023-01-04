@@ -54,7 +54,7 @@ const moveToCity = (event) => {
 const handleResponse = (res) => {
   if (!res.ok) {
     return res
-      .showMap((latitude , longitude))
+      .showMap((latitude, longitude))
       .then((result) => JSON.parse(result))
       .then((result) =>
         Promise.reject({
@@ -69,16 +69,16 @@ const handleResponse = (res) => {
 
 // to show map in html and make marker with search
 
-const showMap = (latitude , longitude) => {
+const showMap = (latitude, longitude) => {
   mapboxgl.accessToken =
     "pk.eyJ1IjoiZXNyYWFoOTYiLCJhIjoiY2xjZ2V2OXI4MTZ0MjNxbzQ3YWs1d2Q5YyJ9.nc36w7QDcG5ub-K0Q5e9TQ";
   const map = new mapboxgl.Map({
-      container: "map",
-      style: "mapbox://styles/esraah96/clchdphxu000014pcrndzkjl7",
-      center: [latitude , longitude],
-      zoom: 4,
-    })
-    new mapboxgl.Marker().setLngLat([latitude , longitude]).addTo(map);
+    container: "map",
+    style: "mapbox://styles/esraah96/clchdphxu000014pcrndzkjl7",
+    center: [latitude, longitude],
+    zoom: 4,
+  });
+  new mapboxgl.Marker().setLngLat([latitude, longitude]).addTo(map);
 };
 
 showMap(0, 0);
